@@ -1,0 +1,62 @@
+# Node.js
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+package-lock.json
+.env
+.env.*.local
+.env.production
+.env.development
+
+# Build output
+dist/
+build/
+out/
+.next/
+.vercel/
+.cache/
+.temp/
+tmp/
+*.log
+
+# React Native
+android/
+ios/
+*.keystore
+
+# Editor configs
+.vscode/
+.idea/
+*.sublime-workspace
+*.sublime-project
+
+# System
+.DS_Store
+Thumbs.db
+
+# OS generated
+ehthumbs.db
+Icon?
+Desktop.ini
+
+# Video / Media
+*.mp4
+*.avi
+*.mov
+*.mkv
+*.webm
+
+# Images (optional, если они временные или большие)
+*.psd
+*.ai
+*.xcf
+*.svgz
+
+# Test / Coverage
+coverage/
+*.lcov
+
+# Firebase / other hosting
+.firebaserc
+.firebase/

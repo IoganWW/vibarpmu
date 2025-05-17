@@ -1,0 +1,114 @@
+.purchased-course-page {
+  background-color: #f8f9fa;
+  min-height: 100vh;
+}
+
+.video-player-card {
+  border: none;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.video-container {
+  background-color: #000;
+  border-radius: 6px;
+  overflow: hidden;
+  position: relative;
+}
+
+.video-container video {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.lessons-list-card {
+  border: none;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  height: 100%;
+}
+
+.progress-card {
+  border: none;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+}
+
+.list-group-item.active {
+  background-color: #e7f1ff;
+  border-color: #e7f1ff;
+  color: #0d6efd;
+}
+
+.list-group-item {
+  transition: all 0.2s ease;
+  border-left: 0;
+  border-right: 0;
+}
+
+.list-group-item:hover {
+  background-color: #f8f9fa;
+}
+
+.list-group-item.active:hover {
+  background-color: #d8e7ff;
+}
+
+/* Стиль для індикатора прогресу */
+.progress {
+  height: 10px;
+  border-radius: 5px;
+}
+
+/* Стиль для кнопок навігації між уроками */
+.btn-outline-primary {
+  border-width: 2px;
+}
+
+/* Стиль для завершених уроків у списку */
+.list-group-item.bg-light {
+  background-color: #f8fff8 !important;
+}
+
+/* Зміни при наведенні на матеріали для завантаження */
+.btn-outline-secondary:hover {
+  background-color: #6c757d;
+  color: white;
+}
+
+/* Анімація для кнопки позначення завершеного уроку */
+.btn-success {
+  transition: all 0.3s ease;
+}
+
+.btn-success:hover {
+  transform: scale(1.05);
+}
+
+/* Медіа-запит для мобільних пристроїв */
+@media (max-width: 768px) {
+  .purchased-course-page {
+    padding-top: 1rem;
+  }
+  
+  .video-player-card {
+    margin-bottom: 1.5rem;
+  }
+  
+  .lessons-list-card {
+    margin-bottom: 1.5rem;
+  }
+  
+  .lesson-actions {
+    flex-direction: column;
+  }
+  
+  .lesson-actions .btn {
+    margin-bottom: 0.5rem;
+    width: 100%;
+  }
+}

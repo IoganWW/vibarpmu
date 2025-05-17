@@ -1,0 +1,48 @@
+import React from 'react';
+import { useLanguage } from '../context/useLanguage';
+import ReactCountryFlag from 'react-country-flag';
+
+const LanguageSwitcher = () => {
+  const { language, changeLanguage } = useLanguage();
+
+  // Маппинг кодов языков на коды стран
+  const languageOptions = [
+    { code: 'ua', country: 'UA', label: 'Українська' },
+    { code: 'en', country: 'GB', label: 'English' },
+    { code: 'bg', country: 'BG', label: 'Български' },
+    { code: 'tr', country: 'TR', label: 'Türkçe' },
+    //{ code: 'de', country: 'DE', label: 'Deutsch' },
+    //{ code: 'pl', country: 'PL', label: 'Polski' },
+    // Добавьте другие языки при необходимости
+  ];
+
+  return (
+    <div className="language-switcher bg-dark py-2 px-2 me-md-2 order-md-last">
+      <div className="flag-buttons">
+        {languageOptions.map((option) => (
+          <button
+            key={option.code}
+            onClick={() => changeLanguage(option.code)}
+            className={`flag-button ${language === option.code ? 'active' : ''}`}
+            title={option.label}
+            aria-label={`Сменить язык на ${option.label}`}
+          >
+            <ReactCountryFlag 
+              countryCode={option.country} 
+              svg 
+              style={{ 
+                width: '20px', 
+                height: '15px',
+                border: language === option.code ? '2px solid #007bff' : '1px solid #ddd',
+                borderRadius: '2px',
+                cursor: 'pointer'
+              }}
+            />
+          </button>
+        ))}
+      </div>
+    </div>
+  );
+};
+
+export default LanguageSwitcher;

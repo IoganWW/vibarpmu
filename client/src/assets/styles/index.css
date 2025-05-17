@@ -1,0 +1,246 @@
+/*nav link auth*/
+.gold-link {
+    color: gold !important;
+}
+
+.sky-link {
+    color: skyblue !important;
+}
+
+.dropdown-item:active,
+.dropdown-item.active {
+  background-color: gray !important;
+}
+
+/*langSwit*/
+.nav-link {
+    padding-left: 0.5rem;;
+}
+
+.language-switcher {
+    display: flex;
+    align-items: center;
+}
+  
+.flag-buttons {
+    display: flex;
+    gap: 8px;
+}
+  
+.flag-button {
+    background: none;
+    border: none;
+    padding: 2px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 3px;
+    transition: all 0.2s;
+}
+  
+.flag-button:hover {
+    background-color: #f0f0f0;
+}
+  
+.flag-button.active {
+    background-color: #e6f7ff;
+}
+
+/*
+#cardColMargin {
+    margin-right:0;
+    margin-left:0;
+}
+
+#cardColMargin .col { 
+    padding-left:5px;    
+    padding-right:5px;
+}
+
+#paddingLeftRight {
+    padding-left:0;    
+    padding-right:0;
+}*/
+
+.textAboutMe {
+	text-indent: 25px; 
+    text-align: justify;
+}
+
+/*
+.row {
+    margin-right: 0 !important;
+    margin-left: 0 !important;
+}
+*/
+
+/*button Courses*/
+.toggle-btn {
+    height: 4rem; 
+    font-size: 1.5rem; 
+    font-weight: bold; 
+}
+
+.toggle-btn-sub {
+    width:90%;
+    height: 3rem; 
+    font-size: 1.2rem; 
+    font-weight: bold;
+    margin-left:auto;    
+    margin-right:auto;
+    display:block;
+}
+
+
+/*Accordion Faq*/
+.accordion-collapse, .card-text, .card-img-top {
+	transition: all 0.3s ease-in-out;
+}
+
+.accordion-button {
+    background-color: #f8f9fa; /* Светлый фон */
+    border-radius: 8px; /* Закруглённые углы */
+    border: 1px solid #ddd; /* Лёгкий контур */
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1), 
+                -2px -2px 5px rgba(255, 255, 255, 0.7); /* Эффект выпуклости */
+    transition: all 0.2s ease-in-out;
+}
+
+.accordion-button:not(.collapsed) {
+    background-color: #e9ecef; /* Фон при раскрытии */
+    box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.1), 
+                inset -2px -2px 5px rgba(255, 255, 255, 0.7); /* Вдавленный эффект */
+}
+
+
+/*footer*/
+.btn-soft-light {
+    background: transparent; /* Прозрачный фон */
+    border: 1px solid rgba(255, 255, 255, 0.6); /* Полупрозрачная белая граница */
+    border-radius: 8px; /* Скругление */
+    color: white; /* Белый текст */
+    font-weight: bold;
+    padding: 8px 16px;
+    box-shadow: 0 0 8px rgba(255, 255, 255, 0.2); /* Мягкая подсветка */
+}
+
+#footerProducts ul li{
+    display: inline-block;
+    padding: 3px;
+}
+
+#footerProducts ul li a {
+    color: white;
+    text-decoration: none;
+}
+
+#footerProducts ul li a:hover {
+    text-decoration: underline;
+}
+
+
+/**/
+/* Контейнер для шапки */
+.header-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 10px;
+}
+
+/* Заголовок шапки */
+.header-title {
+    font-size: 28px;
+    color: #333;
+    font-family: 'Arial', sans-serif;
+}
+
+/* Описание */
+.header-description {
+    font-size: 16px;
+    color: #666;
+    text-align: center;
+    max-width: 600px;
+    line-height: 1.6;
+}
+
+/* Контейнер формы */
+.form-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 600px;
+    margin: 10px auto;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: #f4f4f9;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Поле ввода */
+.phone-input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 16px;
+    width: 80%;
+    margin-right: 10px;
+    color: #333;
+    background-color: #fff;
+    transition: border-color 0.3s ease;
+}
+
+/* При фокусе поле ввода меняет цвет границы */
+.phone-input:focus {
+    border-color: #5c9dfd;
+    outline: none;
+}
+
+/* Кнопка отправки */
+.submit-button {
+    padding: 10px 20px;
+    background-color: #5c9dfd;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    }
+
+/* При наведении кнопка меняет цвет */
+.submit-button:hover {
+    background-color: #4b8ed1;
+}
+
+/* Активная кнопка */
+.submit-button:active {
+    background-color: #4078b3;
+}
+
+/*cards*/
+.transition-height {
+    transition: max-height 0.3s ease-in-out;
+    overflow: hidden;
+}  
+  
+.transition-all {
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+  
+.animate-fade-in {
+    animation: fadeIn 0.3s ease-in-out;
+}
+  
+@keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+}
