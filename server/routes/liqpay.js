@@ -32,7 +32,7 @@ router.post("/create-payment", (req, res) => {
     version: "3",
     sandbox: 1,
     result_url: `http://localhost:5173/courses/${courseId}`,
-    server_url: "https://a67e-79-132-4-62.ngrok-free.app/api/liqpay/callback",
+    server_url: "https://7602-79-132-4-62.ngrok-free.app/api/liqpay/callback",
   };
 
   const { data, signature } = generateDataAndSignature(params);

@@ -1,6 +1,5 @@
 const asyncHandler = require("../middlewares/asyncHandler");
 
-
 exports.getProfile = (req, res) => {
   res.json({
     success: true,

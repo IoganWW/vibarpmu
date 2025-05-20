@@ -23,7 +23,7 @@ const Header = () => {
     gallery,
     faq,
     courses,
-    personalCoaching,
+    //personalCoaching,
     article,
     profile,
     exclusive,
@@ -65,7 +65,7 @@ const Header = () => {
 
   const location = useLocation();
   const currentPath = location.pathname;
-  const isDropdownActive = ["/exclusive/brows", "/exclusive/lips"].includes(
+  const isDropdownActive = ["/courses/brows", "/courses/lips"].includes(
     currentPath
   );
 
@@ -137,9 +137,9 @@ const Header = () => {
                       {online} {lips}
                     </NavDropdown.Item>
                     <NavDropdown.Divider />
-                    <NavDropdown.Item as={NavLink} to="personal">
+                    {/*<NavDropdown.Item as={NavLink} to="personal">
                       {personalCoaching}
-                    </NavDropdown.Item>
+                    </NavDropdown.Item>*/}
                   </NavDropdown>
                 </>
               )}

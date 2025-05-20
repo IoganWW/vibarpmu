@@ -7,7 +7,7 @@ const AccessDenied = () => {
       <h2>Доступ запрещен</h2>
       <p>У вас нет доступа к этому курсу.</p>
       <p>Для получения доступа необходимо приобрести соответствующий курс.</p>
-      <Link to="/courses" className="btn btn-primary mb-3">Просмотреть доступные курсы</Link>
+      <Link to="/coursesGroup" className="btn btn-primary mb-3">Просмотреть доступные курсы</Link>
     </div>
   );
 };

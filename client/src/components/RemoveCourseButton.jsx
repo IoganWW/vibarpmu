@@ -6,7 +6,7 @@ const RemoveCourseButton = ({ courseId }) => {
   
     const handleRemove = async () => {
       try {
-        const res = await authFetch(`/api/profile/remove-course/${ courseId }`, {
+        const res = await authFetch(`/api/profile/remove-course/${courseId}`, {
           method: 'POST',
         });
   

@@ -16,9 +16,7 @@ const Profile = lazy(() => import("./pages/Profile"));
 
 const BrowsOnlineVi = lazy(() => import("./pages/promotion/BrowsOnlineVi"));
 const LipsOnlineVi = lazy(() => import("./pages/promotion/LipsOnlineVi"));
-
 const PurchasedCourse = lazy(() => import("./pages/exclusive/PurchasedCourse"));
-//const LipsOnline = lazy(() => import("./pages/exclusive/LipsOnline"));
 
 
 // Создаем компоненты с оберткой для ленивой загрузки
@@ -31,17 +29,16 @@ const LoadableArticles = Loadable(Articles);
 const LoadableProfile = Loadable(Profile);
 
 const LoadableABrowsOnlineVi = Loadable(BrowsOnlineVi);
-const LoadableipsOnlineVi = Loadable(LipsOnlineVi);
-
+const LoadableLipsOnlineVi = Loadable(LipsOnlineVi);
 const LoadableAPurchasedCourse = Loadable(PurchasedCourse);
-//const LoadableipsOnline = Loadable(LipsOnline);
+
 
 const routes = [
   {
     path: "/",
     element: <Layout />,
     children: [
-      { path: "/", element: <Navigate to="/home" /> },
+      { path: "/", element: <LoadableHome /> },
       { path: "home", element: <LoadableHome /> },
       { path: "coursesGroup", element: <LoadableCourses /> },
       { path: "gallery", element: <LoadableGallery /> },
@@ -59,16 +56,15 @@ const routes = [
 
       { path: "onlineBrowsVi",
         element: ( <PrivateRoute>
-                  <LoadableABrowsOnlineVi />
-                </PrivateRoute> ), },
+                    <LoadableABrowsOnlineVi />
+                  </PrivateRoute> ), },
       { path: "onlineLipsVi",
         element: ( <PrivateRoute>
-                <LoadableipsOnlineVi />
-              </PrivateRoute> ), },
+                    <LoadableLipsOnlineVi />
+                  </PrivateRoute> ), },
 
       //маршруты для оплаченых курсов
       { path: "courses/:courseId", element: <LoadableAPurchasedCourse /> },
-      //{ path: "courses/lips", element: <LoadableipsOnline /> },
       { path: "access-denied", 
         element: ( <PrivateRoute>
                     <AccessDenied />

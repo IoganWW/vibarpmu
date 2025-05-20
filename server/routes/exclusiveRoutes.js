@@ -1,9 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const {
-  authenticateToken,
-  checkCourseAccess,
-} = require("../middlewares/authMiddleware");
+const { authenticateToken, checkCourseAccess } = require("../middlewares/authMiddleware");
 const { Course, Progress } = require("../models/Purchased");
 
 router.get("/courses/:courseId",

@@ -2,8 +2,16 @@ const path = require('path');
 const dotenv = require('dotenv');
 
 // Загружаем соответствующий файл окружения
-const envFile = `.env.${process.env.NODE_ENV || 'development'}`;
-dotenv.config({ path: path.resolve(__dirname, envFile) });
+//console.log("Current NODE_ENV:", process.env.NODE_ENV);
+const envFile = `.env.${(process.env.NODE_ENV || 'development').trim()}`;
+const result = dotenv.config({ path: path.resolve(__dirname, envFile) });
+if (result.error) {
+  console.error("Error loading .env file:", result.error);
+} else {
+  console.log(".env file loaded successfully");
+}
+// Отладка значений после загрузки
+//console.log("DB_URI after loading:", process.env.DB_URI);
 
 module.exports = {
   port: process.env.PORT || 5000,
