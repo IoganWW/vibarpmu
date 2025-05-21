@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { AuthContext } from "./useAuth";
+const API_BASE = import.meta.env.VITE_API_BASE;
 
 // Провайдер контекста
 export const AuthProvider = ({ children }) => {
@@ -11,7 +12,7 @@ export const AuthProvider = ({ children }) => {
   // Получение профиля с сервера
   const fetchUserProfile = async (authToken) => {
     try {
-      const response = await fetch("/api/profile", {
+      const response = await fetch(`${API_BASE}/api/profile`, {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
@@ -120,7 +121,7 @@ export const AuthProvider = ({ children }) => {
 
   // Функция регистрации
   const register = async (userData) => {
-    const response = await fetch("/api/register", {
+    const response = await fetch(`${API_BASE}/api/register`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(userData),
@@ -138,7 +139,7 @@ export const AuthProvider = ({ children }) => {
 
   // Функция авторизации
   const loginUser = async (email, password) => {
-    const response = await fetch("/api/login", {
+    const response = await fetch(`${API_BASE}/api/login`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ email, password }),

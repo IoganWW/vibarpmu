@@ -1,12 +1,13 @@
 import React from 'react';
 import { useAuth } from '../context/useAuth';
+const API_BASE = import.meta.env.VITE_API_BASE;
 
 const RemoveCourseButton = ({ courseId }) => {
     const { authFetch, refreshUserData } = useAuth();
   
     const handleRemove = async () => {
       try {
-        const res = await authFetch(`/api/profile/remove-course/${courseId}`, {
+        const res = await authFetch(`${API_BASE}/api/profile/remove-course/${courseId}`, {
           method: 'POST',
         });
   

@@ -179,7 +179,7 @@ const RegisterModal = ({ show, handleClose, switchToLogin }) => {
         await register(userData);
         handleClose();
         resetRegisterForm();
-        navigate("/articles");
+        navigate("/profile");
       } catch (error) {
         setError(error.message || `${registerData.submitErrFb}`);
       } finally {

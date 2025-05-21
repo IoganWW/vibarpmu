@@ -6,6 +6,7 @@ import { useLanguage } from "../../context/useLanguage";
 import { useAuth } from "../../context/useAuth";
 import { purchasedCourseData } from "../../components/data/purchasedCourse";
 import "./PurchasedCourse.css";
+const API_BASE = import.meta.env.VITE_API_BASE;
 
 const PurchasedCourse = () => {
   const { courseId } = useParams();
@@ -26,12 +27,12 @@ const PurchasedCourse = () => {
       try {
         setLoading(true);
         // Отримуємо дані курсу з API
-        const data = await authFetch(`/api/courses/${courseId}`);
+        const data = await authFetch(`${API_BASE}/api/courses/${courseId}`);
         const course = data.course;
         setCourse(course);
         
         // Отримуємо прогрес користувача (завершені уроки)
-        const dataProgress = await authFetch(`/api/courses/${courseId}/progress`);
+        const dataProgress = await authFetch(`${API_BASE}/api/courses/${courseId}/progress`);
         const progressData = dataProgress.progress;
         if (progressData && progressData.completedLessons) {
           setCompletedLessons(progressData.completedLessons);
@@ -66,7 +67,7 @@ const PurchasedCourse = () => {
       }
       
       // Відправка на сервер
-      await authFetch(`/api/courses/${courseId}/lessons/${lessonId}/progress`, {
+      await authFetch(`${API_BASE}/api/courses/${courseId}/lessons/${lessonId}/progress`, {
         method: 'POST',
         body: JSON.stringify({ completed: !isCompleted }),
         headers: {

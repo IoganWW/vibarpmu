@@ -29,7 +29,7 @@ const CourseCard = memo(({ id, img, title, text,
         </p>
       </div>
       <div className="card-footer text-center bg-dark">
-        <a href="courses" className="btn btn-warning btn-sm mt-2">{text[language].details}</a>
+        <a href="coursesGroup" className="btn btn-warning btn-sm mt-2">{text[language].details}</a>
       </div>
     </div>
    </div>

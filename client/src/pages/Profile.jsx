@@ -3,6 +3,7 @@ import { useAuth } from "../context/useAuth";
 import { useLanguage } from "../context/useLanguage";
 import { authModalData } from "../components/data/authModalData";
 import RemoveCourseButton from "../components/RemoveCourseButton";
+const API_BASE = import.meta.env.VITE_API_BASE;
 
 function Profile() {
   const { language } = useLanguage();
@@ -21,7 +22,7 @@ function Profile() {
 
   const handleSave = async () => {
     try {
-      const res = await authFetch("/api/profile", {
+      const res = await authFetch(`${API_BASE}/api/profile`, {
         method: "POST",
         body: JSON.stringify(profileData),
       });
