@@ -17,7 +17,7 @@ module.exports = {
   port: process.env.PORT || 5000,
   host: process.env.HOST || 'localhost',
   dbUri: process.env.DB_URI,
-  clientUrl: process.env.CLIENT_URL,
+  clientUrl: process.env.CLIENT_URL.split(','),
   rateLimit: {
     windowMs: process.env.RATE_LIMIT_WINDOW || 15 * 60 * 1000,
     max: process.env.RATE_LIMIT_MAX || 100
