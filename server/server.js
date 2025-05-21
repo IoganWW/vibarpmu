@@ -26,6 +26,7 @@ const liqpayRoutes = require("./routes/liqpay");
 const {
   port,
   host,
+  clientUrl,
   dbUri,
   rateLimit: rateLimitConfig,
   logging,
@@ -137,7 +138,7 @@ app.use(limiter);
 // Настраиваем CORS
 app.use(
   cors({
-    origin: true,
+    origin: [clientUrl],
     credentials: true,
   })
 );
@@ -172,7 +173,7 @@ app.use("/api/liqpay", liqpayRoutes);
 
 
 // Настройка для режима production - отдача статических файлов клиента
-if (process.env.NODE_ENV === "production") {
+/*if (process.env.NODE_ENV === "production") {
   // Используем ТОЧНЫЙ путь к директории клиента, как показал диагностический скрипт
   const clientPath = path.resolve(__dirname, "../client/dist"); // Это точный путь
   
@@ -242,7 +243,7 @@ if (process.env.NODE_ENV === "production") {
   } else {
     console.error("❌ Директория клиента НЕ НАЙДЕНА по пути:", clientPath);
   }
-}
+}*/
 
 // Заголовок для ngrok
 app.use((req, res, next) => {
