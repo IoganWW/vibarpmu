@@ -135,6 +135,7 @@ const limiter = rateLimit({
 
 app.use(limiter);
 
+console.log(clientUrl);
 // Настраиваем CORS
 app.use(
   cors({
