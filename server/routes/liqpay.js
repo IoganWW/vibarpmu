@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 const crypto = require("crypto");
 const User = require("../models/User");
-const { clientUrl, serverUrl, liqpayPublic, liqpayPrivate } = require("../config");
+const { serverUrl, liqpayPublic, liqpayPrivate } = require("../config");
 
 
 function generateDataAndSignature(params) {
@@ -30,7 +30,7 @@ router.post("/create-payment", (req, res) => {
     order_id: orderId,
     version: "3",
     sandbox: 1,
-    result_url: `${clientUrl}/courses/${courseId}?payment=success`,
+    result_url: `${serverUrl}/courses/${courseId}?payment=success`,
     server_url: `${serverUrl}/api/liqpay/callback`,
   };
 
@@ -96,7 +96,7 @@ router.post("/callback", async (req, res) => {
 router.get("/payment/success/:courseId", (req, res) => {
   const { courseId } = req.params;
   // Перенаправляем пользователя на фронтенд
-  res.redirect(`${clientUrl}/course/${courseId}?payment=success`);
+  res.redirect(`${serverUrl}/course/${courseId}?payment=success`);
 });
 
 module.exports = router;
