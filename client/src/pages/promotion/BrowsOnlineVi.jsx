@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Container, Row, Col, Card, Badge } from "react-bootstrap";
 import { useLanguage } from "../../context/useLanguage";
 import BuyCourseButton from "../../components/BuyCourseButton";
-import slide1 from "../../assets/images/slide1.jpg";
+import slideBrows from "../../assets/images/slideBrows.jpg";
 // Імпортуйте іконки, якщо вони вам доступні
 import { FaCheck, FaClock, FaUserGraduate, FaStar, FaPlayCircle } from "react-icons/fa";
 import { navMenuData } from "../../components/data/navData";
@@ -101,7 +101,7 @@ const BrowsOnlineVi = () => {
       <div 
         className="hero-section py-5" 
         style={{ 
-          backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(${slide1})`,
+          backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(${slideBrows})`,
           backgroundSize: "cover",
           backgroundPosition: "center",
           color: "white"
@@ -123,18 +123,17 @@ const BrowsOnlineVi = () => {
                 </div>
                 <div className="me-4">
                   <FaUserGraduate className="me-2" />
-                  <span>100+ випускників</span>
+                  <span>50+ випускників</span>
                 </div>
                 <div>
                   <FaPlayCircle className="me-2" />
-                  <span>12+ відеоуроків</span>
+                  <span>11+ відеоуроків</span>
                 </div>
               </div>
               <div className="d-flex flex-wrap">
                 <h3 className="text-warning me-3 mb-0">4000 грн</h3>
                 <div className="d-flex">
                   <BuyCourseButton courseId="brows" className="btn btn-warning btn-lg px-4 me-2" />
-                  <button className="btn btn-outline-light btn-lg">Дізнатися більше</button>
                 </div>
               </div>
             </Col>
@@ -303,7 +302,7 @@ const BrowsOnlineVi = () => {
               </Col>
               <Col md={6}>
                 <img 
-                  src={slide1} 
+                  src={slideBrows} 
                   alt="Результат курсу" 
                   className="img-fluid rounded shadow" 
                 />
@@ -403,9 +402,9 @@ const BrowsOnlineVi = () => {
       <div className="bg-secondary text-white py-5">
         <Container className="text-center">
           <h2 className="mb-4">Готові стати професіоналом у перманентному макіяжі брів?</h2>
-          <p className="lead mb-4">Запишіться на курс зараз та отримайте знижку 10%</p>
+          <p className="lead mb-4">Запишіться на курс зараз та отримайте знижку 15%</p>
           <div>
-            <h4 className="mb-3">4000 грн <small><s>4400 грн</s></small></h4>
+            <h4 className="mb-3">4000 грн <small><s>4600 грн</s></small></h4>
             <BuyCourseButton courseId="brows" className="btn btn-light btn-lg px-5" />
           </div>
         </Container>

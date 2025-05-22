@@ -19,7 +19,7 @@ const fs = require("fs");
 const authRoutes = require("./routes/authRoutes");
 const profileRoutes = require("./routes/profileRoutes");
 const exclusiveRoutes = require("./routes/exclusiveRoutes");
-const buyCoursesRoutes = require("./routes/buyCoursesRoutes");
+const removeCoursesRoutes = require("./routes/removeCoursesRoutes");
 const liqpayRoutes = require("./routes/liqpay");
 
 // Импорт конфигурации и middleware
@@ -169,7 +169,7 @@ app.use(
 app.use("/api", authRoutes);
 app.use("/api", profileRoutes);
 app.use("/api", exclusiveRoutes);
-app.use("/api", buyCoursesRoutes);
+app.use("/api", removeCoursesRoutes);
 app.use("/api/liqpay", liqpayRoutes);
 
 

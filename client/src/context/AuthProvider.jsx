@@ -48,7 +48,6 @@ export const AuthProvider = ({ children }) => {
           const payload = JSON.parse(atob(storedToken.split(".")[1]));
           setUser({
             _id: payload.id,
-            //email: payload.email,
             name: payload.name,
             paidCourses: payload.paidCourses || [],
           });
@@ -94,7 +93,6 @@ export const AuthProvider = ({ children }) => {
       const payload = JSON.parse(atob(newToken.split(".")[1]));
       setUser({
         _id: payload.id,
-        //email: payload.email,
         name: payload.name,
         paidCourses: payload.paidCourses || [],
       });
@@ -102,7 +100,6 @@ export const AuthProvider = ({ children }) => {
       console.log(err);
       setUser({
         _id: userData._id,
-        //email: userData.email,
         name: userData.name,
       });
     }

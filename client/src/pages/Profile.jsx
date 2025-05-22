@@ -41,8 +41,8 @@ function Profile() {
     return <div className="text-center">Загрузка данных профиля...</div>;
 
   return (
-    <div className="container mt-5">
-      <div className="card shadow-lg mb-5">
+    <div className="container mt-4">
+      <div className="card shadow-lg mb-4">
         <div className="card-header bg-secondary text-white">
           <h3 className="mb-0">{profile.header}</h3>
         </div>
@@ -143,7 +143,7 @@ function Profile() {
               </div>
             )}
           </div>
-          <div className="d-flex justify-content-end px-5 py-2">
+          <div className="d-flex justify-content-end px-5">
             {editing ? (
               <>
                 <button

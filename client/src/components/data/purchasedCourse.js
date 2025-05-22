@@ -11,6 +11,8 @@ export const purchasedCourseData = {
     downloadMaterials: "Завантажити матеріали",
     courseNotFound: "Курс не знайдено",
     error: "Помилка при завантаженні курсу",
+    paymentSuccessTitle: "Оплата пройшла успішно!",
+    paymentSuccessMessage: "Ласкаво просимо! Тепер у вас є повний доступ до курсу."
   },
   en: {
     loading: "Loading course...",
@@ -23,6 +25,8 @@ export const purchasedCourseData = {
     downloadMaterials: "Download materials",
     courseNotFound: "Course not found",
     error: "Error loading the course",
+    paymentSuccessTitle: "Payment Successful!",
+    paymentSuccessMessage: "Welcome! You now have full access to the course."
   },
   bg: {
     loading: "Зареждане на курса...",
@@ -35,6 +39,8 @@ export const purchasedCourseData = {
     downloadMaterials: "Изтегли материали",
     courseNotFound: "Курсът не е намерен",
     error: "Грешка при зареждане на курса",
+    paymentSuccessTitle: "Плащането е успешно!",
+    paymentSuccessMessage: "Добре дошли! Сега имате пълен достъп до курса."
   },
   tr: {
     loading: "Kurs yükleniyor...",
@@ -47,5 +53,7 @@ export const purchasedCourseData = {
     downloadMaterials: "Malzemeleri indir",
     courseNotFound: "Kurs bulunamadı",
     error: "Kurs yüklenirken hata oluştu",
+    paymentSuccessTitle: "Ödeme Başarılı!",
+    paymentSuccessMessage: "Hoş geldiniz! Artık kursa tam erişiminiz var."
   },
 };

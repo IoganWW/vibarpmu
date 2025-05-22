@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Container, Row, Col, Card, Badge } from "react-bootstrap";
 import { useLanguage } from "../../context/useLanguage";
 import BuyCourseButton from "../../components/BuyCourseButton";
-import slide1 from "../../assets/images/slide1.jpg";
+import slideLips from "../../assets/images/slideLips.jpg";
 import {
   FaCheck,
   FaClock,
@@ -114,7 +114,7 @@ const LipsOnlineVi = () => {
       <div
         className="hero-section py-5"
         style={{
-          backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(${slide1})`,
+          backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(${slideLips})`,
           backgroundSize: "cover",
           backgroundPosition: "center",
           color: "white",
@@ -139,11 +139,11 @@ const LipsOnlineVi = () => {
                 </div>
                 <div className="me-4">
                   <FaUserGraduate className="me-2" />
-                  <span>100+ випускників</span>
+                  <span>50+ випускників</span>
                 </div>
                 <div>
                   <FaPlayCircle className="me-2" />
-                  <span>12+ відеоуроків</span>
+                  <span>11+ відеоуроків</span>
                 </div>
               </div>
               <div className="d-flex flex-wrap">
@@ -154,9 +154,6 @@ const LipsOnlineVi = () => {
                     courseName="Online Lips"
                     className="btn btn-warning btn-lg px-4 me-2"
                   />
-                  <button className="btn btn-outline-light btn-lg">
-                    Дізнатися більше
-                  </button>
                 </div>
               </div>
             </Col>
@@ -167,7 +164,7 @@ const LipsOnlineVi = () => {
                     Запишіться на курс зараз
                   </h4>
                   <p className="text-center text-dark mb-4">
-                    Не відкладайте на потім
+                    Вперед!
                   </p>
                   <div className="text-center">
                     <h5 className="text-dark mb-3">
@@ -373,7 +370,7 @@ const LipsOnlineVi = () => {
               </Col>
               <Col md={6}>
                 <img
-                  src={slide1}
+                  src={slideLips}
                   alt="Результат курсу"
                   className="img-fluid rounded shadow"
                 />

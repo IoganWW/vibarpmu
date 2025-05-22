@@ -2,16 +2,15 @@ const express = require("express");
 const router = express.Router();
 const crypto = require("crypto");
 const User = require("../models/User");
+const { clientUrl, serverUrl, liqpayPublic, liqpayPrivate } = require("../config");
 
-const PUBLIC_KEY = "sandbox_i16331467522";
-const PRIVATE_KEY = "sandbox_J5iejbYvC24yejq31JmCZhEVyzVdG034YQ0XHDNd";
 
 function generateDataAndSignature(params) {
   const jsonString = JSON.stringify(params);
   const data = Buffer.from(jsonString).toString("base64");
   const signature = crypto
     .createHash("sha1")
-    .update(PRIVATE_KEY + data + PRIVATE_KEY)
+    .update(liqpayPrivate + data + liqpayPrivate)
     .digest("base64");
 
   return { data, signature };
@@ -23,7 +22,7 @@ router.post("/create-payment", (req, res) => {
   console.log("userId:", userId);
 
   const params = {
-    public_key: PUBLIC_KEY,
+    public_key: liqpayPublic,
     action: "pay",
     amount,
     currency: "UAH",
@@ -31,8 +30,8 @@ router.post("/create-payment", (req, res) => {
     order_id: orderId,
     version: "3",
     sandbox: 1,
-    result_url: `https://vi-bar-pmu.online/courses/${courseId}`,
-    server_url: "https://vi-bar-pmu.online/api/liqpay/callback",
+    result_url: `${clientUrl}/courses/${courseId}?payment=success`,
+    server_url: `${serverUrl}/api/liqpay/callback`,
   };
 
   const { data, signature } = generateDataAndSignature(params);
@@ -56,7 +55,7 @@ router.post("/callback", async (req, res) => {
 
   const expectedSignature = crypto
     .createHash("sha1")
-    .update(PRIVATE_KEY + data + PRIVATE_KEY)
+    .update(liqpayPrivate + data + liqpayPrivate)
     .digest("base64");
 
   if (signature !== expectedSignature) {
@@ -91,6 +90,13 @@ router.post("/callback", async (req, res) => {
   }
 
   res.status(200).send("OK");
+});
+
+// Простой эндпоинт для перенаправления после оплаты
+router.get("/payment/success/:courseId", (req, res) => {
+  const { courseId } = req.params;
+  // Перенаправляем пользователя на фронтенд
+  res.redirect(`${clientUrl}/course/${courseId}?payment=success`);
 });
 
 module.exports = router;

@@ -1,15 +1,17 @@
 // PurchasedCourse.jsx
 import React, { useState, useEffect } from "react";
 import { Container, Row, Col, Card, ListGroup, ProgressBar, Badge } from "react-bootstrap";
-import { useParams, Navigate } from "react-router-dom";
+import { useParams, Navigate, useLocation } from "react-router-dom";
 import { useLanguage } from "../../context/useLanguage";
 import { useAuth } from "../../context/useAuth";
 import { purchasedCourseData } from "../../components/data/purchasedCourse";
 import "./PurchasedCourse.css";
+
 const API_BASE = import.meta.env.VITE_API_BASE;
 
 const PurchasedCourse = () => {
   const { courseId } = useParams();
+  const location = useLocation();
   const { language } = useLanguage();
   const { authFetch } = useAuth();
   const [currentVideoIndex, setCurrentVideoIndex] = useState(0);
@@ -18,8 +20,27 @@ const PurchasedCourse = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
   const [redirect, setRedirect] = useState(false);
+  const [paymentSuccess, setPaymentSuccess] = useState(false);
 
   const t = purchasedCourseData[language] || purchasedCourseData.ua;
+
+  // Проверка успешной оплаты из URL 
+  useEffect(() => { 
+    const urlParams = new URLSearchParams(location.search); 
+    const paymentStatus = urlParams.get('payment'); 
+    
+    if (paymentStatus === 'success') { 
+      setPaymentSuccess(true);
+
+      // Скрываем уведомление через 5 секунд 
+      setTimeout(() => { 
+        setPaymentSuccess(false); 
+        // Убираем параметр из URL 
+        const newUrl = window.location.pathname; 
+        window.history.replaceState({}, document.title, newUrl);
+      }, 5000);
+     } 
+    }, [location.search]);
 
   // Завантаження даних курсу з API
   useEffect(() => {
@@ -138,6 +159,15 @@ const PurchasedCourse = () => {
   return (
     <div className="purchased-course-page py-5">
       <Container>
+        {/* Уведомление об успешной оплате */}
+        {paymentSuccess && ( 
+          <Alert variant="success" className="mb-4" dismissible onClose={() => setPaymentSuccess(false)}>
+            <Alert.Heading>🎉 {t.paymentSuccessTitle}</Alert.Heading> 
+            <p className="mb-0"> 
+              {t.paymentSuccessMessage} 
+            </p> 
+          </Alert> 
+        )}
         <Row className="mb-4">
           <Col>
             <div className="d-flex align-items-center">

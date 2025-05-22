@@ -37,9 +37,8 @@ export const card4on = card4onImg;
 import lipsBasicSertImg from './lipsBasicSert.jpg';
 export const lipsBasicSert = lipsBasicSertImg;
 
-import slide1Img from "./slide1.jpg";
-export const slide1 = slide1Img;
-//import slide2Img from "./slide2.jpg";
-//export const slide2 = slide2Img;
-//import slide3Img from "./slide3.jpg";
-//export const slide3 = slide3Img;
+import slideBrowsImg from "./slideBrows.jpg";
+export const slideBrows = slideBrowsImg;
+import slideLipsImg from "./slideLips.jpg";
+export const slideLips = slideLipsImg;
+

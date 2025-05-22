@@ -85,7 +85,7 @@ const Header = () => {
           </Navbar.Brand>
           {isAuthenticated ? (
             <>
-              <span className="d-xl-none bg-light rounded px-2 py-1">
+              <span className="d-xl-none bg-light rounded px-1 py-1">
                 <strong>
                   {hello}, {user?.name || "user"}
                 </strong>
@@ -101,8 +101,8 @@ const Header = () => {
           ) : (
             <>
               <Button
-                variant="outline-primary"
-                className="order-1 order-xl-last px-3 py-2 me-2 ms-auto text-nowrap"
+                variant="outline-light"
+                className="order-1 order-xl-last me-2 ms-auto text-nowrap"
                 onClick={handleOpenLogin}
               >
                 {authButton}

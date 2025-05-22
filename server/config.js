@@ -18,6 +18,7 @@ module.exports = {
   host: process.env.HOST || 'localhost',
   dbUri: process.env.DB_URI,
   clientUrl: process.env.CLIENT_URL.split(','),
+  serverUrl: process.env.SERVER_URL.split(','),
   rateLimit: {
     windowMs: process.env.RATE_LIMIT_WINDOW || 15 * 60 * 1000,
     max: process.env.RATE_LIMIT_MAX || 100
@@ -31,7 +32,8 @@ module.exports = {
     threshold: process.env.COMPRESSION_THRESHOLD || 100
   },
   jwtSecret: process.env.JWT_SECRET,
-  stripeSecret: process.env.STRIPE_SECRET_KEY,
+  liqpayPublic: process.env.PUBLIC_KEY,
+  liqpayPrivate: process.env.PRIVATE_KEY,
   environment: process.env.NODE_ENV || 'development',
   // Можно добавить логику для разных окружений
   isDev: (process.env.NODE_ENV || 'development') !== 'production'

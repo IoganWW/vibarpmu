@@ -16,7 +16,7 @@ const Courses = () => {
   };
 
   return (
-    <div className="courses-page py-5">
+    <div className="courses-page py-4">
       <Container>
         <Row className="mb-4">
           <Col>

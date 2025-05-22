@@ -91,7 +91,7 @@ const Gallery = () => {
     <div className="container-fluid">
       {/* Фильтр */}
       <nav>
-        <ul className="pagination justify-content-center custom-pagination mt-3 mb-2">
+        <ul className="pagination justify-content-center custom-pagination mt-2 mb-2">
           <li className={`page-item ${currentFilter === "all" ? "active" : ""}`}>
             <a className="page-link" href="#" onClick={(e) => {
               e.preventDefault();
@@ -129,7 +129,7 @@ const Gallery = () => {
 
       {/* Пагинация */}
       <nav>
-        <ul className="pagination justify-content-center custom-pagination mt-2 mb-3">
+        <ul className="pagination justify-content-center custom-pagination mt-2 mb-2">
           <li className={`page-item ${currentPage === 1 ? "disabled" : ""}`}>
             <a className="page-link" href="#" onClick={(e) => {
               e.preventDefault();
