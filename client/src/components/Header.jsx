@@ -23,7 +23,7 @@ const Header = () => {
     gallery,
     faq,
     courses,
-    //personalCoaching,
+    personalCoaching,
     article,
     profile,
     exclusive,
@@ -90,13 +90,6 @@ const Header = () => {
                   {hello}, {user?.name || "user"}
                 </strong>
               </span>
-              <Button
-                variant="outline-danger"
-                className="order-1 order-xl-last me-2 ms-auto text-nowrap"
-                onClick={handleLogout}
-              >
-                {logOut}
-              </Button>
             </>
           ) : (
             <>
@@ -137,9 +130,9 @@ const Header = () => {
                       {online} {lips}
                     </NavDropdown.Item>
                     <NavDropdown.Divider />
-                    {/*<NavDropdown.Item as={NavLink} to="personal">
+                    <NavDropdown.Item as={NavLink} to="personal">
                       {personalCoaching}
-                    </NavDropdown.Item>*/}
+                    </NavDropdown.Item>
                   </NavDropdown>
                 </>
               )}
@@ -179,6 +172,13 @@ const Header = () => {
                   <Nav.Link as={NavLink} to="profile" className="sky-link">
                     {profile}
                   </Nav.Link>
+                  <Button
+                    variant="outline-danger"
+                    className="order-1 order-xl-last me-2 ms-auto text-nowrap"
+                    onClick={handleLogout}
+                  >
+                    {logOut}
+                  </Button>
                 </>
               )}
             </Nav>

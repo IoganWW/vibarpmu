@@ -14,6 +14,7 @@ const cors = require("cors");
 const path = require("path");
 const mongoose = require("mongoose");
 const fs = require("fs");
+//const { createProxyMiddleware } = require('http-proxy-middleware');
 
 // Импорты маршрутов
 const authRoutes = require("./routes/authRoutes");
@@ -26,7 +27,7 @@ const liqpayRoutes = require("./routes/liqpay");
 const {
   port,
   host,
-  clientUrl,
+  clientUrlsCors,
   dbUri,
   rateLimit: rateLimitConfig,
   logging,
@@ -41,11 +42,12 @@ const morgan = require("morgan");
 // Создаем экземпляр Express приложения
 const app = express();
 
-const originalAppGet = app.get;
-app.get = (...args) => {
-  console.log("app.get вызван с аргументами:", args);
-  return originalAppGet.apply(app, args);
-};
+// Проксирование запросов к Vite dev серверу
+/*app.use('/', createProxyMiddleware({
+  target: 'http://localhost:5173',
+  changeOrigin: true,
+  ws: true, // для поддержки WebSocket
+}));*/
 
 // Функция фильтрации для сжатия только определенных типов контента
 function shouldCompress(req, res) {
@@ -135,11 +137,11 @@ const limiter = rateLimit({
 
 app.use(limiter);
 
-console.log(clientUrl);
+console.log(clientUrlsCors);
 // Настраиваем CORS
 app.use(
   cors({
-    origin: [clientUrl],
+    origin: [clientUrlsCors],
     credentials: true,
   })
 );
@@ -172,85 +174,6 @@ app.use("/api", exclusiveRoutes);
 app.use("/api", removeCoursesRoutes);
 app.use("/api/liqpay", liqpayRoutes);
 
-
-// Настройка для режима production - отдача статических файлов клиента
-/*if (process.env.NODE_ENV === "production") {
-  // Используем ТОЧНЫЙ путь к директории клиента, как показал диагностический скрипт
-  const clientPath = path.resolve(__dirname, "../client/dist"); // Это точный путь
-  
-  console.log("====== НАСТРОЙКА СТАТИЧЕСКИХ ФАЙЛОВ ======");
-  console.log(`Использую директорию клиента: ${clientPath}`);
-  
-  // Проверяем существование директории для уверенности
-  if (fs.existsSync(clientPath)) {
-    console.log("✅ Директория клиента НАЙДЕНА");
-    
-    // Проверяем наличие index.html
-    const indexHtmlPath = path.join(clientPath, "index.html");
-    if (fs.existsSync(indexHtmlPath)) {
-      console.log("✅ index.html НАЙДЕН");
-      
-      // Настройка middleware для раздачи статических файлов
-      // ВАЖНО: добавляем заголовки для доступа к статическим файлам через ngrok
-      app.use(express.static(clientPath, {
-        setHeaders: (res, filePath) => {
-          // Разрешаем доступ к файлам из других источников
-          res.setHeader("Access-Control-Allow-Origin", "*");
-          res.setHeader("Cross-Origin-Resource-Policy", "cross-origin");
-          
-          // Кеширование для улучшения производительности
-          if (filePath.endsWith('.html')) {
-            // HTML не кешируем
-            res.setHeader('Cache-Control', 'no-cache');
-          } else if (filePath.match(/\.(js|css|png|jpg|jpeg|gif|ico|svg)$/)) {
-            // Статические ресурсы кешируем на 1 день
-            res.setHeader('Cache-Control', 'public, max-age=86400');
-          }
-        }
-      }));
-      
-      // Маршрут для обработки SPA роутинга
-      app.get('*', (req, res, next) => {
-        // Игнорируем API запросы
-        if (req.originalUrl.startsWith("/api")) {
-          return next();
-        }
-        
-        // Игнорируем запросы к статическим файлам - они уже должны быть обработаны express.static
-        if (req.originalUrl.match(/\.(js|css|png|jpg|jpeg|gif|ico|svg)$/)) {
-          console.log("Запрос к статическому файлу, уже должен быть обработан:", req.originalUrl);
-          return next();
-        }
-        
-        console.log("Запрос к приложению, отдаю index.html:", req.originalUrl);
-        
-        // Устанавливаем необходимые заголовки
-        res.setHeader("Access-Control-Allow-Origin", "*");
-        res.setHeader("Cross-Origin-Resource-Policy", "cross-origin");
-        
-        // Отправляем index.html с обработкой ошибок
-        res.sendFile(indexHtmlPath, (err) => {
-          if (err) {
-            console.error("Ошибка при отправке index.html:", err);
-            res.status(500).send("Внутренняя ошибка сервера при загрузке index.html");
-          }
-        });
-      });
-      
-      console.log("✅ Настройка статических файлов ЗАВЕРШЕНА");
-    } else {
-      console.error("❌ index.html НЕ НАЙДЕН в директории клиента");
-    }
-  } else {
-    console.error("❌ Директория клиента НЕ НАЙДЕНА по пути:", clientPath);
-  }
-}*/
-
-// Заголовок для ngrok
-app.use((req, res, next) => {
-  res.setHeader("ngrok-skip-browser-warning", "true");
-  next();
-});
 
 // Обработчик 404 - должен быть размещен ПОСЛЕ всех маршрутов
 app.use((req, res, next) => {

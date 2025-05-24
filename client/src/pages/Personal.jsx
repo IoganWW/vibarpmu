@@ -1,13 +1,13 @@
 import React from "react";
 
 
-const Articles = () => {
+const Personal = () => {
   return (
     <div className="container">
-      <h2>Articles</h2>
+      <h2>Personal coaching</h2>
       <p>soon...</p>
     </div>
   );
 };
 
-export default Articles;
+export default Personal;

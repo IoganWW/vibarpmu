@@ -8,11 +8,11 @@ export const purchasedCourseData = {
     markIncomplete: "Позначити як незавершений",
     lesson: "Урок",
     completed: "Завершено",
-    downloadMaterials: "Завантажити матеріали",
+    //downloadMaterials: "Завантажити матеріали",
     courseNotFound: "Курс не знайдено",
     error: "Помилка при завантаженні курсу",
-    paymentSuccessTitle: "Оплата пройшла успішно!",
-    paymentSuccessMessage: "Ласкаво просимо! Тепер у вас є повний доступ до курсу."
+    //paymentSuccessTitle: "Оплата пройшла успішно!",
+    //paymentSuccessMessage: "Ласкаво просимо! Тепер у вас є повний доступ до курсу."
   },
   en: {
     loading: "Loading course...",
@@ -22,11 +22,11 @@ export const purchasedCourseData = {
     markIncomplete: "Mark as incomplete",
     lesson: "Lesson",
     completed: "Completed",
-    downloadMaterials: "Download materials",
+    //downloadMaterials: "Download materials",
     courseNotFound: "Course not found",
     error: "Error loading the course",
-    paymentSuccessTitle: "Payment Successful!",
-    paymentSuccessMessage: "Welcome! You now have full access to the course."
+    //paymentSuccessTitle: "Payment Successful!",
+    //paymentSuccessMessage: "Welcome! You now have full access to the course."
   },
   bg: {
     loading: "Зареждане на курса...",
@@ -36,11 +36,11 @@ export const purchasedCourseData = {
     markIncomplete: "Маркирай като незавършен",
     lesson: "Урок",
     completed: "Завършен",
-    downloadMaterials: "Изтегли материали",
+    //downloadMaterials: "Изтегли материали",
     courseNotFound: "Курсът не е намерен",
     error: "Грешка при зареждане на курса",
-    paymentSuccessTitle: "Плащането е успешно!",
-    paymentSuccessMessage: "Добре дошли! Сега имате пълен достъп до курса."
+    //paymentSuccessTitle: "Плащането е успешно!",
+    //paymentSuccessMessage: "Добре дошли! Сега имате пълен достъп до курса."
   },
   tr: {
     loading: "Kurs yükleniyor...",
@@ -50,10 +50,10 @@ export const purchasedCourseData = {
     markIncomplete: "Tamamlanmadı olarak işaretle",
     lesson: "Ders",
     completed: "Tamamlandı",
-    downloadMaterials: "Malzemeleri indir",
+    //downloadMaterials: "Malzemeleri indir",
     courseNotFound: "Kurs bulunamadı",
     error: "Kurs yüklenirken hata oluştu",
-    paymentSuccessTitle: "Ödeme Başarılı!",
-    paymentSuccessMessage: "Hoş geldiniz! Artık kursa tam erişiminiz var."
+    //paymentSuccessTitle: "Ödeme Başarılı!",
+    //paymentSuccessMessage: "Hoş geldiniz! Artık kursa tam erişiminiz var."
   },
 };

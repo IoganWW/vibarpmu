@@ -1,7 +1,7 @@
 // PurchasedCourse.jsx
 import React, { useState, useEffect } from "react";
 import { Container, Row, Col, Card, ListGroup, ProgressBar, Badge } from "react-bootstrap";
-import { useParams, Navigate, useLocation } from "react-router-dom";
+import { useParams, Navigate } from "react-router-dom";
 import { useLanguage } from "../../context/useLanguage";
 import { useAuth } from "../../context/useAuth";
 import { purchasedCourseData } from "../../components/data/purchasedCourse";
@@ -11,7 +11,6 @@ const API_BASE = import.meta.env.VITE_API_BASE;
 
 const PurchasedCourse = () => {
   const { courseId } = useParams();
-  const location = useLocation();
   const { language } = useLanguage();
   const { authFetch } = useAuth();
   const [currentVideoIndex, setCurrentVideoIndex] = useState(0);
@@ -20,27 +19,8 @@ const PurchasedCourse = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
   const [redirect, setRedirect] = useState(false);
-  const [paymentSuccess, setPaymentSuccess] = useState(false);
 
   const t = purchasedCourseData[language] || purchasedCourseData.ua;
-
-  // Проверка успешной оплаты из URL 
-  useEffect(() => { 
-    const urlParams = new URLSearchParams(location.search); 
-    const paymentStatus = urlParams.get('payment'); 
-    
-    if (paymentStatus === 'success') { 
-      setPaymentSuccess(true);
-
-      // Скрываем уведомление через 5 секунд 
-      setTimeout(() => { 
-        setPaymentSuccess(false); 
-        // Убираем параметр из URL 
-        const newUrl = window.location.pathname; 
-        window.history.replaceState({}, document.title, newUrl);
-      }, 5000);
-     } 
-    }, [location.search]);
 
   // Завантаження даних курсу з API
   useEffect(() => {
@@ -157,17 +137,8 @@ const PurchasedCourse = () => {
   const currentLessonContent = currentLesson[language] || currentLesson.ua;
 
   return (
-    <div className="purchased-course-page py-5">
+    <div className="purchased-course-page py-4">
       <Container>
-        {/* Уведомление об успешной оплате */}
-        {paymentSuccess && ( 
-          <Alert variant="success" className="mb-4" dismissible onClose={() => setPaymentSuccess(false)}>
-            <Alert.Heading>🎉 {t.paymentSuccessTitle}</Alert.Heading> 
-            <p className="mb-0"> 
-              {t.paymentSuccessMessage} 
-            </p> 
-          </Alert> 
-        )}
         <Row className="mb-4">
           <Col>
             <div className="d-flex align-items-center">
@@ -240,12 +211,6 @@ const PurchasedCourse = () => {
                 <div className="lesson-actions">
                   <p className="mb-2">{currentLessonContent.description}</p>
                   <div className="d-flex justify-content-between mt-3">
-                    {currentLesson.materials && (
-                      <a href={currentLesson.materials} className="btn btn-outline-secondary" download>
-                        <i className="bi bi-download me-2"></i>
-                        {t.downloadMaterials}
-                      </a>
-                    )}
                     <button 
                       className={`btn ${completedLessons.includes(currentLesson.id) ? 'btn-success' : 'btn-outline-success'}`}
                       onClick={() => toggleLessonCompletion(currentLesson.id)}

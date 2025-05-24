@@ -12,6 +12,7 @@ const Gallery = lazy(() => import("./pages/Gallery"));
 const Faq = lazy(() => import("./pages/Faq"));
 
 const Articles = lazy(() => import("./pages/Articles"));
+const Personal = lazy(() => import("./pages/Personal"));
 const Profile = lazy(() => import("./pages/Profile"));
 
 const BrowsOnlineVi = lazy(() => import("./pages/promotion/BrowsOnlineVi"));
@@ -26,6 +27,7 @@ const LoadableGallery = Loadable(Gallery);
 const LoadableFaq = Loadable(Faq);
 
 const LoadableArticles = Loadable(Articles);
+const LoadablePersonal = Loadable(Personal);
 const LoadableProfile = Loadable(Profile);
 
 const LoadableABrowsOnlineVi = Loadable(BrowsOnlineVi);
@@ -61,6 +63,10 @@ const routes = [
       { path: "onlineLipsVi",
         element: ( <PrivateRoute>
                     <LoadableLipsOnlineVi />
+                  </PrivateRoute> ), },
+      { path: "personal",
+        element: ( <PrivateRoute>
+                    <LoadablePersonal />
                   </PrivateRoute> ), },
 
       //маршруты для оплаченых курсов
