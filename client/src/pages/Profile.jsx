@@ -42,7 +42,7 @@ function Profile() {
 
   return (
     <div className="container mt-4">
-      <div className="card shadow-lg mb-4">
+      <div className="card shadow-lg col-md-12 col-lg-10 offset-lg-1 col-xl-8 offset-xl-2 mb-4">
         <div className="card-header bg-secondary text-white">
           <h3 className="mb-0">{profile.header}</h3>
         </div>
@@ -121,7 +121,7 @@ function Profile() {
                 {user.paidCourses?.includes("brows") && (
                   <>
                     <button
-                      className="btn btn-primary rounded mb-2 me-2"
+                      className="btn btn-primary rounded mb-2 me-1"
                       disabled
                     >
                       BROWS
@@ -132,7 +132,7 @@ function Profile() {
                 {user.paidCourses?.includes("lips") && (
                   <>
                     <button
-                      className="btn btn-primary rounded mb-2 me-2"
+                      className="btn btn-primary rounded mb-2 me-1"
                       disabled
                     >
                       LIPS

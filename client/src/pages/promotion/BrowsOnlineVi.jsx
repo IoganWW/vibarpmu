@@ -142,7 +142,7 @@ const BrowsOnlineVi = () => {
                 <Card.Body className="p-4">
                   <h4 className="text-center text-dark mb-4">Запишіться на курс зараз</h4>
                   <p className="text-center text-dark mb-4">
-                    Кількість місць обмежена! Новий потік стартує вже скоро.
+                    Зручне навчання онлайн! 
                   </p>
                   <div className="text-center">
                     <h5 className="text-dark mb-3">Ціна: <span className="text-success">4000 грн</span></h5>

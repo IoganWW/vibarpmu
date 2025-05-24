@@ -22,7 +22,7 @@ const RemoveCourseButton = ({ courseId }) => {
     };
   
     return (
-      <button className="btn btn-outline-danger rounded mb-2 me-5 btn-sm" onClick={handleRemove}>
+      <button className="btn btn-outline-danger rounded mb-3 me-3 btn-sm" onClick={handleRemove}>
         X
       </button>
     );

@@ -56,7 +56,7 @@ export default function PhoneForm() {
             placeholder={placeholder}
             className="border p-2 rounded w-full me-2"
           />
-          <button type="submit" className="btn btn-primary px-4 py-2 rounded">
+          <button type="submit" className="btn btn-primary px-3 py-2 rounded">
             {buttonText}
           </button>
           {error && <p className="alert alert-danger">{error}</p>}
