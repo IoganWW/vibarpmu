@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { AuthContext } from "./useAuth";
+import { useNavigate, useLocation } from "react-router-dom";
 const API_BASE = import.meta.env.VITE_API_BASE;
 
 // Провайдер контекста
@@ -8,6 +9,11 @@ export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
   const [token, setToken] = useState(null);
+
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const currentLamg = location.pathname.split("/")[1] || "ua";
 
   // Получение профиля с сервера
   const fetchUserProfile = async (authToken) => {
@@ -114,6 +120,7 @@ export const AuthProvider = ({ children }) => {
     setToken(null);
     setUser(null);
     setIsAuthenticated(false);
+    navigate(`/${currentLamg}/home`);
   };
 
   // Функция регистрации

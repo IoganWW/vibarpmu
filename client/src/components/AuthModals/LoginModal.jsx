@@ -58,7 +58,7 @@ const LoginModal = ({ show, handleClose, switchToRegister }) => {
       await loginUser(email, password);
       resetLoginForm();
       handleClose();
-      navigate("/profile");
+      navigate(`${language}/profile`);
     } catch (error) {
       setError(error.message || `${loginData.loginErr}`);
     } finally {
