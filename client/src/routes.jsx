@@ -19,7 +19,6 @@ const BrowsOnlineVi = lazy(() => import("./pages/promotion/BrowsOnlineVi"));
 const LipsOnlineVi = lazy(() => import("./pages/promotion/LipsOnlineVi"));
 const PurchasedCourse = lazy(() => import("./pages/exclusive/PurchasedCourse"));
 
-
 // Создаем компоненты с оберткой для ленивой загрузки
 const LoadableHome = Loadable(Home);
 const LoadableCourses = Loadable(Courses);
@@ -34,49 +33,71 @@ const LoadableABrowsOnlineVi = Loadable(BrowsOnlineVi);
 const LoadableLipsOnlineVi = Loadable(LipsOnlineVi);
 const LoadableAPurchasedCourse = Loadable(PurchasedCourse);
 
-
 const routes = [
   {
     path: "/",
     element: <Layout />,
     children: [
-      { path: "/", element: <LoadableHome /> },
-      { path: "home", element: <LoadableHome /> },
-      { path: "coursesGroup", element: <LoadableCourses /> },
-      { path: "gallery", element: <LoadableGallery /> },
-      { path: "faq", element: <LoadableFaq /> },
+      { index: true, element: <Navigate to="/ua" /> },
+      {
+        path: ":lang",
+        children: [
+          { index: true, element: <LoadableHome /> },
+          { path: "home", element: <LoadableHome /> },
+          { path: "coursesGroup", element: <LoadableCourses /> },
+          { path: "gallery", element: <LoadableGallery /> },
+          { path: "faq", element: <LoadableFaq /> },
 
-      //создаем защищенные маршруты
-      { path: "profile",
-        element: ( <PrivateRoute>
-                    <LoadableProfile />
-                  </PrivateRoute> ), },
-      { path: "articles",
-        element: ( <PrivateRoute>
-                    <LoadableArticles />
-                  </PrivateRoute> ), },
+          //создаем защищенные маршруты
+          {
+            path: "profile",
+            element: (
+              <PrivateRoute>
+                <LoadableProfile />
+              </PrivateRoute>
+            ),
+          },
+          {
+            path: "articles",
+            element: (
+              <PrivateRoute>
+                <LoadableArticles />
+              </PrivateRoute>
+            ),
+          },
 
-      { path: "onlineBrowsVi",
-        element: ( <PrivateRoute>
-                    <LoadableABrowsOnlineVi />
-                  </PrivateRoute> ), },
-      { path: "onlineLipsVi",
-        element: ( <PrivateRoute>
-                    <LoadableLipsOnlineVi />
-                  </PrivateRoute> ), },
-      { path: "personal",
-        element: ( <PrivateRoute>
-                    <LoadablePersonal />
-                  </PrivateRoute> ), },
+          {
+            path: "onlineBrowsVi",
+            element: (
+              <PrivateRoute>
+                <LoadableABrowsOnlineVi />
+              </PrivateRoute>
+            ),
+          },
+          {
+            path: "onlineLipsVi",
+            element: (
+              <PrivateRoute>
+                <LoadableLipsOnlineVi />
+              </PrivateRoute>
+            ),
+          },
+          {
+            path: "personal",
+            element: (
+              <PrivateRoute>
+                <LoadablePersonal />
+              </PrivateRoute>
+            ),
+          },
 
-      //маршруты для оплаченых курсов
-      { path: "courses/:courseId", element: <LoadableAPurchasedCourse /> },
-      { path: "access-denied", 
-        element: ( <PrivateRoute>
-                    <AccessDenied />
-                  </PrivateRoute>), },
+          //маршруты для оплаченых курсов
+          { path: "courses/:courseId", element: <LoadableAPurchasedCourse /> },
+          { path: "access-denied", element: <AccessDenied /> },
 
-      { path: "*", element: <Navigate to="/home" /> },
+          { path: "*", element: <Navigate to="home" replace /> },
+        ],
+      },
     ],
   },
 ];

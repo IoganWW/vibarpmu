@@ -14,7 +14,7 @@ const cors = require("cors");
 const path = require("path");
 const mongoose = require("mongoose");
 const fs = require("fs");
-//const { createProxyMiddleware } = require('http-proxy-middleware');
+const { createProxyMiddleware } = require('http-proxy-middleware');
 
 // Импорты маршрутов
 const authRoutes = require("./routes/authRoutes");
@@ -43,11 +43,11 @@ const morgan = require("morgan");
 const app = express();
 
 // Проксирование запросов к Vite dev серверу
-/*app.use('/', createProxyMiddleware({
+app.use('/', createProxyMiddleware({
   target: 'http://localhost:5173',
   changeOrigin: true,
   ws: true, // для поддержки WebSocket
-}));*/
+}));
 
 // Функция фильтрации для сжатия только определенных типов контента
 function shouldCompress(req, res) {

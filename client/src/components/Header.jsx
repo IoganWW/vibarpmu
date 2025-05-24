@@ -73,7 +73,7 @@ const Header = () => {
     <header>
       <Navbar bg="dark" data-bs-theme="dark" expand="xl">
         <Container>
-          <Navbar.Brand as={Link} to="/" alt="Brand">
+          <Navbar.Brand as={Link} to={`/${language}/`} alt="Brand">
             <img
               src={logo}
               width="30"
@@ -108,29 +108,29 @@ const Header = () => {
           />
           <Navbar.Collapse id="basic-navbar-nav" className="order-3 w-100">
             <Nav variant="underline" className="px-4 me-auto">
-              <Nav.Link as={NavLink} to="home">
+              <Nav.Link as={NavLink} to={`/${language}/home`}>
                 {home}
               </Nav.Link>
-              <Nav.Link as={NavLink} to="gallery">
+              <Nav.Link as={NavLink} to={`/${language}/gallery`}>
                 {gallery}
               </Nav.Link>
-              <Nav.Link as={NavLink} to="coursesGroup">
+              <Nav.Link as={NavLink} to={`/${language}/coursesGroup`}>
                 {courses}
               </Nav.Link>
               {isAuthenticated && (
                 <>
-                  <Nav.Link as={NavLink} to="articles">
+                  <Nav.Link as={NavLink} to={`/${language}/articles`}>
                     {article}
                   </Nav.Link>
                   <NavDropdown title={online} id="basic-nav-dropdown">
-                    <NavDropdown.Item as={NavLink} className="sky-link" to="onlineBrowsVi">
+                    <NavDropdown.Item as={NavLink} className="sky-link" to={`/${language}/onlineBrowsVi`}>
                       {online} {brows}
                     </NavDropdown.Item>
-                    <NavDropdown.Item as={NavLink} className="sky-link" to="onlineLipsVi">
+                    <NavDropdown.Item as={NavLink} className="sky-link" to={`/${language}/onlineLipsVi`}>
                       {online} {lips}
                     </NavDropdown.Item>
                     <NavDropdown.Divider />
-                    <NavDropdown.Item as={NavLink} to="personal">
+                    <NavDropdown.Item as={NavLink} to={`/${language}/personal`}>
                       {personalCoaching}
                     </NavDropdown.Item>
                   </NavDropdown>
@@ -144,9 +144,9 @@ const Header = () => {
                 >
                   {user?.paidCourses?.includes("brows") && (
                     <NavDropdown.Item
-                      active={currentPath === "/courses/brows"}
+                      active={currentPath === `/${language}/courses/brows`}
                       as={NavLink}
-                      to="courses/brows"
+                      to={`/${language}/courses/brows`}
                       className="gold-link"
                     >
                       {online} {brows}
@@ -154,9 +154,9 @@ const Header = () => {
                   )}
                   {user?.paidCourses?.includes("lips") && (
                     <NavDropdown.Item
-                      active={currentPath === "/courses/lips"}
+                      active={currentPath === `/${language}/courses/lips`}
                       as={NavLink}
-                      to="courses/lips"
+                      to={`/${language}/courses/lips`}
                       className="gold-link"
                     >
                       {online} {lips}
@@ -164,12 +164,12 @@ const Header = () => {
                   )}
                 </NavDropdown>
               )}
-              <Nav.Link as={NavLink} to="faq">
+              <Nav.Link as={NavLink} to={`/${language}/faq`}>
                 {faq}
               </Nav.Link>
               {isAuthenticated && (
                 <>
-                  <Nav.Link as={NavLink} to="profile" className="sky-link">
+                  <Nav.Link as={NavLink} to={`/${language}/profile`} className="sky-link">
                     {profile}
                   </Nav.Link>
                   <Button

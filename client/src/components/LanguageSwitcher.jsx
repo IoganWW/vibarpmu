@@ -1,8 +1,11 @@
 import React from 'react';
+import { useNavigate, useParams } from 'react-router-dom';
 import { useLanguage } from '../context/useLanguage';
 import ReactCountryFlag from 'react-country-flag';
 
 const LanguageSwitcher = () => {
+  const navigate = useNavigate();
+  const { lang } = useParams();
   const { language, changeLanguage } = useLanguage();
 
   // Маппинг кодов языков на коды стран
@@ -16,13 +19,22 @@ const LanguageSwitcher = () => {
     // Добавьте другие языки при необходимости
   ];
 
+  const handleLanguageChange = (newLang) => {
+    // Меняем контекст
+    changeLanguage(newLang);
+    
+    // Меняем URL, сохраняя текущую страницу
+    const currentPath = location.pathname.replace(`/${lang}`, '');
+    navigate(`/${newLang}${currentPath || '/home'}`);
+  };
+
   return (
     <div className="language-switcher bg-dark py-2 px-2 me-md-2 order-md-last">
       <div className="flag-buttons">
         {languageOptions.map((option) => (
           <button
             key={option.code}
-            onClick={() => changeLanguage(option.code)}
+            onClick={() => handleLanguageChange(option.code)}
             className={`flag-button ${language === option.code ? 'active' : ''}`}
             title={option.label}
             aria-label={`Сменить язык на ${option.label}`}
