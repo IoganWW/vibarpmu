@@ -65,7 +65,7 @@ const Header = () => {
 
   const location = useLocation();
   const currentPath = location.pathname;
-  const isDropdownActive = ["/courses/brows", "/courses/lips"].includes(
+  const isDropdownActive = [`/${language}/courses/brows`, `/${language}/courses/lips`].includes(
     currentPath
   );
 

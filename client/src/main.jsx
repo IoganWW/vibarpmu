@@ -15,12 +15,12 @@ import App from "./App.jsx";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <AuthProvider>
+    <BrowserRouter>
       <LanguageProvider>
-        <BrowserRouter>
+        <AuthProvider>
           <App />
-        </BrowserRouter>
+        </AuthProvider>
       </LanguageProvider>
-    </AuthProvider>
+    </BrowserRouter>
   </StrictMode>
 );
