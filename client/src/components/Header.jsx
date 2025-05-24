@@ -122,7 +122,7 @@ const Header = () => {
                   <Nav.Link as={NavLink} to="articles">
                     {article}
                   </Nav.Link>
-                  <NavDropdown title={courses + ' ' + online} id="basic-nav-dropdown">
+                  <NavDropdown title={online} id="basic-nav-dropdown">
                     <NavDropdown.Item as={NavLink} className="sky-link" to="onlineBrowsVi">
                       {online} {brows}
                     </NavDropdown.Item>
