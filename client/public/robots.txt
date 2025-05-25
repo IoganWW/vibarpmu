@@ -1,0 +1,30 @@
+User-agent: *
+Disallow: /ua/profile
+Disallow: /ua/articles
+Disallow: /ua/onlineBrowsVi
+Disallow: /ua/onlineLipsVi
+Disallow: /ua/personal
+Disallow: /ua/courses/
+
+Disallow: /en/profile
+Disallow: /en/articles
+Disallow: /en/onlineBrowsVi
+Disallow: /en/onlineLipsVi
+Disallow: /en/personal
+Disallow: /en/courses/
+
+Disallow: /bg/profile
+Disallow: /bg/articles
+Disallow: /bg/onlineBrowsVi
+Disallow: /bg/onlineLipsVi
+Disallow: /bg/personal
+Disallow: /bg/courses/
+
+Disallow: /tr/profile
+Disallow: /tr/articles
+Disallow: /tr/onlineBrowsVi
+Disallow: /tr/onlineLipsVi
+Disallow: /tr/personal
+Disallow: /tr/courses/
+
+Sitemap: https://vibarpmu-client.onrender.com/sitemap.xml
