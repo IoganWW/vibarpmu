@@ -1,10 +1,11 @@
 import React from 'react';
-import { useNavigate, useParams } from 'react-router-dom';
+import { useNavigate, useParams, useLocation } from 'react-router-dom';
 import { useLanguage } from '../context/useLanguage';
 import ReactCountryFlag from 'react-country-flag';
 
 const LanguageSwitcher = () => {
   const navigate = useNavigate();
+  const location = useLocation();
   const { lang } = useParams();
   const { language, changeLanguage } = useLanguage();
 

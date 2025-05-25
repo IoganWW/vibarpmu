@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import { AuthContext } from "./useAuth";
 import { useNavigate, useLocation } from "react-router-dom";
 const API_BASE = import.meta.env.VITE_API_BASE;
@@ -13,10 +13,10 @@ export const AuthProvider = ({ children }) => {
   const navigate = useNavigate();
   const location = useLocation();
 
-  const currentLamg = location.pathname.split("/")[1] || "ua";
+  const currentLang = location.pathname.split("/")[1] || "ua";
 
   // Получение профиля с сервера
-  const fetchUserProfile = async (authToken) => {
+  const fetchUserProfile = useCallback(async (authToken) => {
     try {
       const response = await fetch(`${API_BASE}/api/profile`, {
         method: "GET",
@@ -25,6 +25,12 @@ export const AuthProvider = ({ children }) => {
           Authorization: `Bearer ${authToken}`,
         },
       });
+
+      // если токен истек
+      if (response.status === 401) {
+        navigate(`/${currentLang}/home`);
+        return null;
+      }
 
       const data = await response.json();
       if (data.success && data.user) {
@@ -38,7 +44,7 @@ export const AuthProvider = ({ children }) => {
       console.error("Ошибка при запросе профиля:", error);
       return null;
     }
-  };
+  }, [navigate, currentLang]);
 
   // Проверка аутентификации при загрузке
   useEffect(() => {
@@ -70,7 +76,7 @@ export const AuthProvider = ({ children }) => {
     };
 
     checkAuth();
-  }, []);
+  }, [fetchUserProfile]);
 
   const refreshUserData = async () => {
     if (token) {
@@ -120,7 +126,7 @@ export const AuthProvider = ({ children }) => {
     setToken(null);
     setUser(null);
     setIsAuthenticated(false);
-    navigate(`/${currentLamg}/home`);
+    navigate(`/${currentLang}/home`);
   };
 
   // Функция регистрации

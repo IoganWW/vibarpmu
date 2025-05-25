@@ -4,6 +4,7 @@ import Layout from "./components/layout/Layout";
 import Loadable from "./utils/Loadable";
 import PrivateRoute from "./components/PrivateRoute";
 import AccessDenied from "./components/AccessDenied";
+import UniversalRedirect from "./components/UniversalRedirect";
 
 // Ленивая загрузка страниц для оптимизации производительности
 const Home = lazy(() => import("./pages/Home"));
@@ -38,7 +39,7 @@ const routes = [
     path: "/",
     element: <Layout />,
     children: [
-      { index: true, element: <Navigate to="/ua" /> },
+      { index: true, element: <UniversalRedirect />},
       {
         path: ":lang",
         children: [
@@ -95,7 +96,7 @@ const routes = [
           { path: "courses/:courseId", element: <LoadableAPurchasedCourse /> },
           { path: "access-denied", element: <AccessDenied /> },
 
-          { path: "*", element: <Navigate to="home" replace /> },
+          { path: "*", element: <UniversalRedirect /> },
         ],
       },
     ],

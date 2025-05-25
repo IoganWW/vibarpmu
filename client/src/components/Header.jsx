@@ -73,7 +73,7 @@ const Header = () => {
     <header>
       <Navbar bg="dark" data-bs-theme="dark" expand="xl">
         <Container>
-          <Navbar.Brand as={Link} to={`/${language}/`} alt="Brand">
+          <Navbar.Brand as={Link} to={`/${language}`} alt="Brand">
             <img
               src={logo}
               width="30"
