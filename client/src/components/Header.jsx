@@ -261,7 +261,7 @@ const Header = () => {
               <div className="d-none d-lg-flex align-items-center ms-auto">
                 {isAuthenticated ? (
                   <>
-                    <span className="me-3 text-light">
+                    <span className="d-lg-none d-xl-flex me-3 text-light">
                       {hello}, <strong>{user?.name || "user"}</strong>
                     </span>
                     <Button
