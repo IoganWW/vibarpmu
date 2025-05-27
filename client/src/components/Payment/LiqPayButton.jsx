@@ -19,7 +19,7 @@ const LiqPayButton = ({ amount, description, orderId, courseId, userId }) => {
         orderId,
         courseId,
         userId,
-        lang
+        language: lang
       });
       setFormHTML(res.data.html);
       // Позже можно добавить трекинг результата оплаты через polling или WebSocket
