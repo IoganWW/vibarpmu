@@ -18,7 +18,7 @@ function generateDataAndSignature(params) {
 
 // Генерация HTML формы
 router.post("/create-payment", (req, res) => {
-  const { amount, description, orderId, courseId, userId } = req.body;
+  const { amount, description, orderId, courseId, userId, lang } = req.body;
   console.log("userId:", userId);
 
   const params = {
@@ -30,7 +30,7 @@ router.post("/create-payment", (req, res) => {
     order_id: orderId,
     version: "3",
     sandbox: 1,
-    result_url: `${clientUrl}/courses/${courseId}`,
+    result_url: `${clientUrl}/${lamg}/courses/${courseId}`,
     server_url: `${serverUrl}/api/liqpay/callback`,
   };
 
