@@ -10,6 +10,8 @@ package-lock.json
 .env.development
 
 # Build output
+client/dist/
+client/build/
 dist/
 build/
 out/
