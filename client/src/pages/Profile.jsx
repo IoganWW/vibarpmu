@@ -22,7 +22,7 @@ function Profile() {
 
   const handleSave = async () => {
     try {
-      const res = await authFetch(`${API_BASE}/api/profile`, {
+      const res = await authFetch(`${API_BASE}/api/users/profile`, {
         method: "POST",
         body: JSON.stringify(profileData),
       });

@@ -18,7 +18,7 @@ export const AuthProvider = ({ children }) => {
   // Получение профиля с сервера
   const fetchUserProfile = useCallback(async (authToken) => {
     try {
-      const response = await fetch(`${API_BASE}/api/profile`, {
+      const response = await fetch(`${API_BASE}/api/users/profile`, {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
@@ -131,7 +131,7 @@ export const AuthProvider = ({ children }) => {
 
   // Функция регистрации
   const register = async (userData) => {
-    const response = await fetch(`${API_BASE}/api/register`, {
+    const response = await fetch(`${API_BASE}/api/auth/register`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(userData),
@@ -149,7 +149,7 @@ export const AuthProvider = ({ children }) => {
 
   // Функция авторизации
   const loginUser = async (email, password) => {
-    const response = await fetch(`${API_BASE}/api/login`, {
+    const response = await fetch(`${API_BASE}/api/auth/login`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ email, password }),
