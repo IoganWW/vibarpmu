@@ -143,7 +143,7 @@ const PurchasedCourse = () => {
           <Col>
             <div className="d-flex align-items-center">
               {course.icon && (
-                <img src={course.icon} alt={content.title} className="me-3" style={{ maxWidth: "60px" }} />
+                <img src={course.icon} loading="lazy" alt={content.title} className="me-3" style={{ maxWidth: "60px" }} />
               )}
               <h1 className="mb-0">{content.title}</h1>
             </div>

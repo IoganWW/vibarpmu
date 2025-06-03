@@ -11,7 +11,7 @@ const CourseBlock = ({ course }) => {
       <div className="course-header d-flex align-items-center gap-4 bg-primary text-white p-4 rounded-top">
         {course.icon && (
           <div className="course-icon">
-            <img src={course.icon} alt={content.title} className="img-fluid" style={{ maxWidth: "80px" }} />
+            <img src={course.icon} loading="lazy" alt={content.title} className="img-fluid" style={{ maxWidth: "80px" }} />
           </div>
         )}
         <h3 className="mb-0">{content.title}</h3>

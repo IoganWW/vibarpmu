@@ -303,6 +303,7 @@ const BrowsOnlineVi = () => {
               <Col md={6}>
                 <img 
                   src={slideBrows} 
+                  loading="lazy"
                   alt="Результат курсу" 
                   className="img-fluid rounded shadow" 
                 />

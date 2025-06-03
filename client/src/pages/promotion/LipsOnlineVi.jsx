@@ -371,6 +371,7 @@ const LipsOnlineVi = () => {
               <Col md={6}>
                 <img
                   src={slideLips}
+                  loading="lazy"
                   alt="Результат курсу"
                   className="img-fluid rounded shadow"
                 />

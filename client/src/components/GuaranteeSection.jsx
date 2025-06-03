@@ -11,7 +11,7 @@ const GuaranteeSection = () => {
     <div className="container-fluid col-lg-10 offset-lg-1 col-xl-8 offset-xl-2 p-2">
       <div className="row align-items-center">
         <div className="col-sm-4 p-3 d-none d-sm-block">
-          <img src={lipsBasicSert} className="card-img-top" alt={altText} />
+          <img src={lipsBasicSert} loading="lazy" className="card-img-top" alt={altText} />
         </div>
         <div className="col-12 col-sm-8 p-3 bg-light">
           <h3><i className="bi bi-shield-check"></i> {title}</h3>

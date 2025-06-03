@@ -119,6 +119,7 @@ const Gallery = () => {
           <div key={index} className="col-6 col-sm-6 col-md-4 col-lg-3">
             <img 
               src={img.src} 
+              loading="lazy"
               className="img-thumbnail gallery-img" 
               alt="Фото" 
               onClick={() => openModal(img.src)}
@@ -156,7 +157,7 @@ const Gallery = () => {
           }
         }}>
           <span className="close" onClick={closeModal}>&times;</span>
-          <img className="modalGal-content" src={currentImage} alt="Увеличенное фото" />
+          <img className="modalGal-content" loading="lazy" src={currentImage} alt="Увеличенное фото" />
         </div>
       )}
     </div>
