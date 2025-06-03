@@ -5,8 +5,8 @@ import { galleryLangData } from '../components/data/galleryLangData';
 
 // Динамический импорт изображений с использованием Vite
 // Это создаст объект с путями к изображениям
-const lipsImages = import.meta.glob('../assets/images/gallery/lips/*.jpg', { eager: true });
-const browsImages = import.meta.glob('../assets/images/gallery/brows/*.jpg', { eager: true });
+const lipsImages = import.meta.glob('../assets/images/gallery/lips/*.webp', { eager: true });
+const browsImages = import.meta.glob('../assets/images/gallery/brows/*.webp', { eager: true });
 
 // Создаем массив данных для галереи
 const galleryData = [

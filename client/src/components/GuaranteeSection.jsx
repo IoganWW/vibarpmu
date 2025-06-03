@@ -1,5 +1,5 @@
 import React from 'react';
-import lipsBasicSert from '../assets/images/lipsBasicSert.jpg';
+import lipsBasicSert from '../assets/images/lipsBasicSert.webp';
 import { useLanguage } from '../context/useLanguage';
 import { guaranteeData, guaranteeIcons } from './data/guaranteeData';
 

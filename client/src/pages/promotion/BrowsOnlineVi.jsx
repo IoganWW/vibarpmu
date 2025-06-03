@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Container, Row, Col, Card, Badge } from "react-bootstrap";
 import { useLanguage } from "../../context/useLanguage";
 import BuyCourseButton from "../../components/BuyCourseButton";
-import slideBrows from "../../assets/images/slideBrows.jpg";
+import slideBrows from "../../assets/images/slideBrows.webp";
 // Імпортуйте іконки, якщо вони вам доступні
 import { FaCheck, FaClock, FaUserGraduate, FaStar, FaPlayCircle } from "react-icons/fa";
 import { navMenuData } from "../../components/data/navData";

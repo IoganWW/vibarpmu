@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Container, Row, Col, Card, Badge } from "react-bootstrap";
 import { useLanguage } from "../../context/useLanguage";
 import BuyCourseButton from "../../components/BuyCourseButton";
-import slideLips from "../../assets/images/slideLips.jpg";
+import slideLips from "../../assets/images/slideLips.webp";
 import {
   FaCheck,
   FaClock,

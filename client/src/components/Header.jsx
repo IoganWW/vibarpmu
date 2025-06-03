@@ -4,7 +4,7 @@ import { Link, NavLink, useLocation } from "react-router-dom";
 import LoginModal from "./AuthModals/LoginModal";
 import RegisterModal from "./AuthModals/RegisterModal";
 import { useAuth } from "../context/useAuth";
-import logo from "../assets/images/brand.jpg";
+import logo from "../assets/images/brand.webp";
 import LanguageSwitcher from "./LanguageSwitcher";
 import { useLanguage } from "../context/useLanguage";
 import { navMenuData } from "./data/navData";
