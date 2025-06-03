@@ -1,5 +1,4 @@
 # docker-compose.yml
-version: '3.8'
 
 services:
   mongodb:
@@ -23,12 +22,13 @@ services:
     environment:
       NODE_ENV: production
       MONGODB_URI: mongodb://admin:password123@mongodb:27017/myapp?authSource=admin
+      PORT: 3000
     depends_on:
       - mongodb
     networks:
       - app-network
     expose:
-      - "5000"
+      - "3000"
 
   nginx:
     build:
