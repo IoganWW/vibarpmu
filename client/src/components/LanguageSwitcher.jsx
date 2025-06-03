@@ -42,7 +42,8 @@ const LanguageSwitcher = () => {
           >
             <ReactCountryFlag 
               countryCode={option.country} 
-              svg 
+              svg
+              alt={option.country}
               style={{ 
                 width: '20px', 
                 height: '15px',

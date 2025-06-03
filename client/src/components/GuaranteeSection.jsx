@@ -14,7 +14,7 @@ const GuaranteeSection = () => {
           <img src={lipsBasicSert} className="card-img-top" alt={altText} />
         </div>
         <div className="col-12 col-sm-8 p-3 bg-light">
-          <h2><i className="bi bi-shield-check"></i> {title}</h2>
+          <h3><i className="bi bi-shield-check"></i> {title}</h3>
           <ul className="list-unstyled">
             {benefitsList.map((benefit, index) => (
               <li key={`benefit-${index}`}>

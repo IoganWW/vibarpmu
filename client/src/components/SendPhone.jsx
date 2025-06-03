@@ -44,7 +44,7 @@ export default function PhoneForm() {
   return (
     <div className="container-fluid">
       <div className="header-container bg-light">
-        <h1 className="header-title">{title}</h1>
+        <h2 className="header-title">{title}</h2>
         <p className="header-description p-1 mb-1">{description}</p>
       </div>
       <div className="form-container">

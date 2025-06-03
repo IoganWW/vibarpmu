@@ -18,7 +18,7 @@ const TrainingInfo = () => {
   return (
     <div className="container-fluid">
       <div className="col-md-8 offset-md-2 bg-light px-4 py-5 rounded">
-        <h2 className="mb-3"><i className={icons.title}></i> {content.title}</h2>
+        <h3 className="mb-3"><i className={icons.title}></i> {content.title}</h3>
         <p><i className={icons.introduction}></i> {renderHTML(content.introduction)}</p>
 
         <h4 className="mt-3"><i className={icons.offlineTitle}></i> {content.offline.title}</h4>
