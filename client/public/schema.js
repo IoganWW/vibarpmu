@@ -5,7 +5,7 @@
     "@context": "https://schema.org",
     "@type": "EducationalOrganization",
     "name": "VI Bar PMU - permanent make up school",
-    "url": "https://www.vi-bar-pmu.online",
+    "url": "https://www.vi-bar-pmu.online/ua",
     "logo": "https://www.vi-bar-pmu.online/logo.png",
     "description": "Професійні курси перманентного макіяжу та навчання PMU майстрів",
     "address": {
